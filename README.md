@@ -10,7 +10,7 @@ https://github.com/novnc/
 ### To start (novnc + websockify) server and open a vnc browser instance
 #### .\Launch.ps1 -proxyport 2777 -webport 8081 -vnc localhost:5900  -Verbose
 
-  -proxyport; the port where the websockets to tcp proxy should listen for wss request
+  -proxyport; the port where the websockets to tcp proxy should listen for wss requests
 
   -webport; the port where the novnc server should listen for http requests
 
@@ -22,7 +22,7 @@ https://github.com/novnc/
 ### To start (novnc + websockify) server over SSH channel and open a vnc browser instance
 #### .\Launch.ps1 -proxyport 2777 -webport 8081 -vnc localhost:5900  -Verbose
 
-  -proxyport; the port where the websockets to tcp proxy should listen for wss request
+  -proxyport; the port where the websockets to tcp proxy should listen for wss requests
 
   -webport; the port where the novnc server will listen for http requests
 
