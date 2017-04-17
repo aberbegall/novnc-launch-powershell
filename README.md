@@ -15,8 +15,8 @@ The script automates the following actions:
 	- installing the required components
 		- nodejs
 		- npm
-		- nodejs modules
-		- putty (in case of ssh sscript only)
+		- nodejs modules (optimist, policyfile, ws and http-server)
+		- putty (in case of ssh script only)
 	- configure components
 	- download the novnc and websockify source from master branch
 	- start the services
