@@ -10,7 +10,7 @@ https://github.com/novnc/
 To execute the script chocolatey needs to be installed. Check how to install it here https://chocolatey.org/install.
 
 ## Description
-The script will takes care of the following actions 
+The script automates the following actions: 
 
 	- installing the required components
 		- nodejs
