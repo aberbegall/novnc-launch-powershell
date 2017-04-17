@@ -1,6 +1,6 @@
 # novnc-launch-powershell
 This repository contains an unofficial launch powershell scripts for novnc + websockify.
-Initially developed as port for Windows of the official novnc launch.sh script.
+Initially developed as port for Windows platform of the official novnc launch.sh script.
 It can be used for quick demostrations or automation purposes too.
 
 ## Credits
@@ -28,7 +28,7 @@ The script automates the following actions:
 
 Arguments:
 
-	- -proxyport; the port where the websockets to tcp proxy should listen for websocket requests. The script will fail if the port is not available.
-	- -webport; the port where the novnc server should listen for http requests. The script will fail if the port is not available.
-	- -vnc; (optional) the ip:port where a vnc server listens for connections. 
-	- -Verbose; (optional)
+	- proxyport; the port where the websockets to tcp proxy should listen for websocket requests. The script will fail if the port is not available.
+	- webport; the port where the novnc server should listen for http requests. The script will fail if the port is not available.
+	- vnc; (optional) the ip:port where a vnc server listens for connections. 
+	- Verbose; (optional)
