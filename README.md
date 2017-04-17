@@ -26,10 +26,9 @@ The script automates the following actions:
 ### To start (novnc + websockify) server and open a vnc browser instance
 #### .\Launch.ps1 -proxyport 2777 -webport 8081 -vnc localhost:5900  -Verbose
 
-	-proxyport; the port where the websockets to tcp proxy should listen for websocket requests. The script will fail if the port is not available.
+Arguments:
 
-	-webport; the port where the novnc server should listen for http requests. The script will fail if the port is not available.
-
-	-vnc; (optional) the ip:port where a vnc server listens for connections. 
-
-	-Verbose; (optional)
+	- -proxyport; the port where the websockets to tcp proxy should listen for websocket requests. The script will fail if the port is not available.
+	- -webport; the port where the novnc server should listen for http requests. The script will fail if the port is not available.
+	- -vnc; (optional) the ip:port where a vnc server listens for connections. 
+	- -Verbose; (optional)
