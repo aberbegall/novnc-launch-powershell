@@ -16,15 +16,28 @@ The script automates the following actions:
 		- nodejs
 		- npm
 		- nodejs modules (optimist, policyfile, ws and http-server)
-		- putty (in case of ssh script only)
+		- putty (only for LaunchWithPlink.ps1)
 	- configure components
 	- download the novnc and websockify source from master branch
 	- start the services
+		- novnc webserver
+		- websockify proxy server
+		- plink tunnel (LaunchWithPlink.ps1)
 	- open novcn browser instance
 
 ## Instructions
 ### To start (novnc + websockify) server and open a vnc browser instance
 #### .\Launch.ps1 -proxyport 2777 -webport 8081 -vnc localhost:5900  -Verbose
+
+Arguments:
+
+	- proxyport; the port where the websockets to tcp proxy should listen for websocket requests. The script will fail if the port is not available.
+	- webport; the port where the novnc server should listen for http requests. The script will fail if the port is not available.
+	- vnc; (optional) the ip:port where a vnc server listens for connections. 
+	- Verbose; (optional)
+
+### To start (novnc + websockify) server and open a vnc browser instance
+#### .\LaunchWithPlink.ps1 -proxyport 2777 -webport 8081 -vnc localhost:5900  -Verbose
 
 Arguments:
 
