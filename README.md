@@ -57,6 +57,9 @@ The script automates the following actions:
 	- open novcn browser instance
 	
 ## Troubleshooting
-() Ensure prerequisites are met
-() Ensure powershell execution policy, allows you to run the script (e.g. RemoteSigned)
-() Each port number should be available, not already bound to another service.
+*Ensure prerequisites are met
+
+*Ensure powershell execution policy, allows you to run the script (e.g. RemoteSigned)
+
+*The specified port numbers should correspond to an available port, not already bound to another service.
+
