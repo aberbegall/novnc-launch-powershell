@@ -28,10 +28,7 @@ The script automates the following actions:
 ## Instructions
 ### To start (novnc + websockify) server and open a vnc browser instance
 
-
 .\Launch.ps1 -proxyport 2777 -webport 8081 -vnc localhost:5900  -Verbose
-Arguments:
-
 	- proxyport	a local port where the websockets to tcp proxy should listen for websocket requests.
 	- webport	a local port where the novnc server should listen for http requests.
 	- vnc 		(default is localhost:5900) the ip:port where a vnc server listens for connections. 
@@ -39,8 +36,7 @@ Arguments:
 
 ### To start (novnc + websockify + plink) server and open a vnc browser instance
 
-\LaunchWithPlink.ps1 -proxyport 2777 -webport 8081 -plinkport 3200 -plinkkeypath "key.ppk" -plinkuser "user" -plinkkeypassphrase "passphrase" -vnc localhost:5900 -Verbose
-Arguments:
+.\LaunchWithPlink.ps1 -proxyport 2777 -webport 8081 -plinkport 3200 -plinkkeypath "key.ppk" -plinkuser "user" -plinkkeypassphrase "passphrase" -vnc localhost:5900 -Verbose
 
 	- proxyport 		a local port where the websockets to tcp proxy should listen for websocket requests.
 	- webport 		a local port where the novnc server should listen for http requests.
