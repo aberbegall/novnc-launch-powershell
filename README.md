@@ -18,6 +18,7 @@ To execute the script chocolatey needs to be installed. Check how to install it 
                 -vnc localhost:5900
 
 ### To launch (novnc server + websockify + plink + vnc web client)
+This option is appropriate when VNC connections are encrypted through an ssh tunnel (http://www.karlrunge.com/x11vnc/ssvnc.html)
 
         .\LaunchWithPlink.ps1 
                 -proxyport 2777 
