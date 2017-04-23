@@ -20,17 +20,25 @@ function Find-ListeningPort([int] $port)
      return ($listening -ne $null)
 }
 
+function Set-NodeVariables()
+{
+    Write-Verbose "Configuring nodejs installation"
+    [string] $modulespath = Join-Path $env:APPDATA -ChildPath "\npm\node_modules"
+    [Environment]::SetEnvironmentVariable("NODE_PATH", $modulespath, "Machine")
+    $currentpath = [Environment]::GetEnvironmentVariable("Path", "Machine")
+    [Environment]::SetEnvironmentVariable("Path", ("{0};{1}" -f $currentpath.ToString(), [Environment]::GetEnvironmentVariable("%NODE_PATH%","Machine")), "Machine")    
+    return $currentpath.ToString()
+}
+
 function Install-NodeJs()
 {
     Write-Verbose "Installing nodejs"
     choco install nodejs.install -y
 
-    Write-Verbose "Installing required nodejs modules"
-    npm install -g optimist, policyfile, ws, http-server
+    Update-SessionEnvironment
 
-    Write-Verbose "Configuring nodejs installation"
-    [Environment]::SetEnvironmentVariable("NODE_PATH", "%AppData%\npm\node_modules", "User")
-    [Environment]::SetEnvironmentVariable("Path", ("{0};{1}" -f [Environment]::GetEnvironmentVariable("Path","User"), [Environment]::GetEnvironmentVariable("NODE_PATH","User")), "User")    
+    Write-Verbose "Installing required nodejs modules"
+    npm install -g optimist, policyfile, ws, http-server        
 }
 
 function Get-NoVncSource([string] $tempfolder, [string] $novncfolder)
@@ -78,6 +86,12 @@ function Start-WebSockifyProxy([string] $websockifyfolder, [string] $proxyport, 
     return $websockifyprocess
 }
 
+function Import-ChocolateyModules()
+{
+    Write-Verbose "Importing chocolatey helper functions for powershell"
+    Import-Module "$env:ChocolateyInstall\helpers\chocolateyInstaller.psm1"
+}
+
 Try 
 {
     If (Find-ListeningPort -port $proxyport)
@@ -89,7 +103,10 @@ Try
         throw "Port $webport in use. Try -webport PORT"
     }
 
+    Import-ChocolateyModules
     Install-NodeJs
+    [string] $currentpath = Set-NodeVariables
+    Update-SessionEnvironment 
 
     $tempfolder = New-Item -ItemType directory "$($PWD)\$(get-date -f yyyyMMddHHmmss)" 
     [string] $webfolder = Join-Path $tempfolder -ChildPath "\web"
@@ -103,7 +120,6 @@ Try
     $websockifyprocess = Start-WebSockifyProxy -websockifyfolder $websockifyfolder -proxyport $proxyport -vnc $vnc
 
     [string] $novncclient = "http://localhost:$($webport)/vnc.html?host=localhost&port=$($proxyport)"
-    Sleep -Seconds 1
     Start-Process $novncclient
 
     Wait-Process -InputObject $novncprocess, $websockifyprocess
@@ -114,6 +130,11 @@ Catch
 }
 Finally 
 {
+    If ($currentpath -ne $null)
+    {
+        Write-Verbose "Reverting system path variable value"
+        [Environment]::SetEnvironmentVariable("Path", $currentpath, "Machine")
+    }
     If (Test-Path $tempfolder)
     {
         Remove-Item $tempfolder -Recurse
