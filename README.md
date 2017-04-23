@@ -16,7 +16,6 @@ To execute the script chocolatey needs to be installed. Check how to install it 
                 -proxyport 2777 
                 -webport 8081 
                 -vnc localhost:5900
-                -Verbose
 
 ### To launch (novnc server + websockify + plink + vnc web client)
 
@@ -27,8 +26,7 @@ To execute the script chocolatey needs to be installed. Check how to install it 
                 -plinkkeypath "key.ppk" 
                 -plinkuser "user" 
                 -plinkkeypassphrase "passphrase" 
-                -vnc localhost:5900 
-                -Verbose
+                -vnc localhost:5900                
 	
 ## Arguments
 
@@ -62,4 +60,6 @@ The script automates the following actions:
 *Ensure powershell execution policy, allows you to run the script (e.g. RemoteSigned)
 
 *The specified port numbers should correspond to an available port, not already bound to another service.
+
+*Add -Verbose argument to get additional log information
 
