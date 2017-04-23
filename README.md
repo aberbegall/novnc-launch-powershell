@@ -9,22 +9,6 @@ https://github.com/novnc/
 ## Prerequisites
 To execute the script chocolatey needs to be installed. Check how to install it here https://chocolatey.org/install.
 
-## Description
-The script automates the following actions: 
-
-	- installing the required components
-		- nodejs
-		- npm
-		- nodejs modules (optimist, policyfile, ws and http-server)
-		- putty (only applicable to LaunchWithPlink.ps1)
-	- configure components
-	- download the novnc and websockify source from master branch
-	- start the services
-		- novnc webserver
-		- websockify proxy server
-		- plink tunnel (only applicable to LaunchWithPlink.ps1)
-	- open novcn browser instance
-
 ## Instructions
 ### To launch (novnc server + websockify + vnc web client)
 
@@ -55,3 +39,24 @@ The script automates the following actions:
 	- plinkuser 		a user from the vnc host.
 	- plinkkeypassphrase 	a key to access the putty key.
 	- vnc 			(default is localhost:5900) the ip:port where a vnc server listens for connections. 
+
+## Description
+The script automates the following actions: 
+
+	- installing the required components
+		- nodejs
+		- npm
+		- nodejs modules (optimist, policyfile, ws and http-server)
+		- putty (only applicable to LaunchWithPlink.ps1)
+	- configure components
+	- download the novnc and websockify source from master branch
+	- start the services
+		- novnc webserver
+		- websockify proxy server
+		- plink tunnel (only applicable to LaunchWithPlink.ps1)
+	- open novcn browser instance
+	
+## Troubleshooting
+() Ensure prerequisites are met
+() Ensure powershell execution policy, allows you to run the script (e.g. RemoteSigned)
+() Each port number should be available, not already bound to another service.
