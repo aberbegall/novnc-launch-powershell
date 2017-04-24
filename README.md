@@ -12,13 +12,13 @@ To execute the script chocolatey needs to be installed. Check how to install it 
 ## Instructions
 ### To launch (http novnc server + ws websockify + vnc web client)
 
-        .\Launch.ps1
+	.\Launch.ps1
 		-proxyport 2777
 		-webport 8081
 		-vnc localhost:5900
 ### To launch (https novnc server + wss websockify + vnc web client)
 
-        .\Launch.ps1 
+	.\Launch.ps1 
 		-proxyport 2777
 		-webport 8081
 		-vnc localhost:5900
@@ -29,7 +29,7 @@ To execute the script chocolatey needs to be installed. Check how to install it 
 ### To launch (novnc server + websockify + plink + vnc web client)
 This option is appropriate when VNC connections are encrypted through an ssh tunnel (http://www.karlrunge.com/x11vnc/ssvnc.html)
 
-        .\LaunchWithPlink.ps1
+	.\LaunchWithPlink.ps1
 		-proxyport 2777
 		-webport 8081
 		-plinkport 3200
