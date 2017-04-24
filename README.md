@@ -1,9 +1,7 @@
 # novnc-launch-powershell
 This repository contains an unofficial launch powershell scripts for novnc + websockify.
 
-Initially developed as port for Windows platform of the official novnc launch.sh script.
-
-It can be used for quick demostrations or automation purposes too.
+Initially developed as port for Windows platform of the official novnc launch.sh script, it can be used for quick demostrations or automation purposes too.
 
 ## Credits
 https://github.com/novnc/
