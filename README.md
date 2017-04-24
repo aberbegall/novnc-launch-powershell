@@ -10,13 +10,22 @@ https://github.com/novnc/
 To execute the script chocolatey needs to be installed. Check how to install it here https://chocolatey.org/install.
 
 ## Instructions
-### To launch (novnc server + websockify + vnc web client)
+### To launch (http novnc server + ws websockify + vnc web client)
 
         .\Launch.ps1 
                 -proxyport 2777 
                 -webport 8081 
                 -vnc localhost:5900
+### To launch (https novnc server + wss websockify + vnc web client)
 
+        .\Launch.ps1 
+                -proxyport 2777 
+                -webport 8081 
+                -vnc localhost:5900
+		-certpath self.pem
+		-keypath key.pem
+		-commonname 10.11.12.13
+		
 ### To launch (novnc server + websockify + plink + vnc web client)
 This option is appropriate when VNC connections are encrypted through an ssh tunnel (http://www.karlrunge.com/x11vnc/ssvnc.html)
 
@@ -38,6 +47,9 @@ This option is appropriate when VNC connections are encrypted through an ssh tun
 	- plinkuser 		a user from the vnc host.
 	- plinkkeypassphrase 	a key to access the putty key.
 	- vnc 			(default is localhost:5900) the ip:port where a vnc server listens for connections. 
+	- certpath		a full path to the certificate file
+	- keypath		a full path to the certificate key file
+	- commonname		a host name specified as CN in the certificate
 
 ## Description
 The script automates the following actions: 
