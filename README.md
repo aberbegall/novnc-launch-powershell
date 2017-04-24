@@ -12,12 +12,15 @@ To execute the script chocolatey needs to be installed. Check how to install it 
 ## Instructions
 ### To launch (http novnc server + ws websockify + vnc web client)
 
+```powershell
 	.\Launch.ps1
 		-proxyport 2777
 		-webport 8081
 		-vnc localhost:5900
+```
 ### To launch (https novnc server + wss websockify + vnc web client)
 
+```powershell
 	.\LaunchWithSsl.ps1 
 		-proxyport 2777
 		-webport 8081
@@ -25,10 +28,11 @@ To execute the script chocolatey needs to be installed. Check how to install it 
 		-certpath self.pem
 		-keypath key.pem
 		-commonname HostName
-		
+```		
 ### To launch (novnc server + websockify + plink + vnc web client)
 This option is appropriate when VNC connections are encrypted through an ssh tunnel (http://www.karlrunge.com/x11vnc/ssvnc.html)
 
+```powershell
 	.\LaunchWithPlink.ps1
 		-proxyport 2777
 		-webport 8081
@@ -37,7 +41,7 @@ This option is appropriate when VNC connections are encrypted through an ssh tun
 		-plinkuser "user"
 		-plinkkeypassphrase "passphrase"
 		-vnc localhost:5900                
-	
+```	
 ## Arguments
 
 	- proxyport 		a local port where the websockets to tcp proxy should listen for websocket requests.
