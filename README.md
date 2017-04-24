@@ -46,7 +46,7 @@ This option is appropriate when VNC connections are encrypted through an ssh tun
 	- plinkkeypath	 	a local path where is the putty key is located.
 	- plinkuser 		a user from the vnc host.
 	- plinkkeypassphrase 	a key to access the putty key.
-	- vnc 			(default is localhost:5900) the ip:port where a vnc server listens for connections. 
+	- vnc 			a tuple ip:port where a vnc server listens for connections (default is localhost:5900).
 	- certpath		a full path to the certificate file
 	- keypath		a full path to the certificate key file
 	- commonname		a host name specified as CN in the certificate
