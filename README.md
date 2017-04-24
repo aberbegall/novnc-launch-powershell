@@ -21,10 +21,10 @@ To execute the script chocolatey needs to be installed. Check how to install it 
 	.\LaunchWithSsl.ps1 
 		-proxyport 2777
 		-webport 8081
-		-vnc localhost:5900
+		-vnc HostName:5900
 		-certpath self.pem
 		-keypath key.pem
-		-commonname 10.11.12.13
+		-commonname HostName
 		
 ### To launch (novnc server + websockify + plink + vnc web client)
 This option is appropriate when VNC connections are encrypted through an ssh tunnel (http://www.karlrunge.com/x11vnc/ssvnc.html)
