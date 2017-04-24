@@ -18,7 +18,7 @@ To execute the script chocolatey needs to be installed. Check how to install it 
 		-vnc localhost:5900
 ### To launch (https novnc server + wss websockify + vnc web client)
 
-	.\Launch.ps1 
+	.\LaunchWithSsl.ps1 
 		-proxyport 2777
 		-webport 8081
 		-vnc localhost:5900
