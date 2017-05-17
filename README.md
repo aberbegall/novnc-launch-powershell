@@ -69,7 +69,7 @@ The script automates the following actions:
 		- novnc webserver
 		- websockify proxy server
 		- plink tunnel (only applicable to LaunchWithPlink.ps1)
-	- open novcn browser instance
+	- open novnc browser instance
 	
 ## Troubleshooting
 *Ensure prerequisites are met
